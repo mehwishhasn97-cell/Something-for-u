@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Areesha Game</title>
+<style>
+body{
+  font-family:sans-serif;
+  text-align:center;
+  background:#ffe6f0;
+  overflow:hidden;
+}
+button{
+  padding:10px 20px;
+  font-size:18px;
+  margin:10px;
+  cursor:pointer;
+}
+#no{
+  position:absolute;
+  transition:0.2s;
+}
+</style>
+</head>
+<body>
+
+<h2>Loading for your cuteness… 120%</h2>
+<button onclick="start()">Continue</button>
+
+<audio id="bgm" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let bgm=document.getElementById('bgm');
+
+function start(){
+  bgm.play();
+  document.body.innerHTML=`
+  <h2>Ye sirf tumhare liye bheja gaya hai</h2>
+  <p>Agar tum end tak jao gi to pata chalega kisne bheja</p>
+  <button onclick="q1()">Enter Game</button>`;
+}
+
+function q1(){
+  document.body.innerHTML=`
+  <h2>Do you love me?</h2>
+  <button onclick="q2()">Yes</button>
+  <button id="no">No</button>`;
+  let no=document.getElementById("no");
+  no.onmouseover=()=>{
+    no.style.left=Math.random()*80+"%";
+    no.style.top=Math.random()*80+"%";
+    let snd=new Audio('https://www.soundjay.com/button/beep-07.mp3');
+    snd.play();
+  };
+}
+
+function q2(){
+  document.body.innerHTML=`
+  <h2>Do you know me?</h2>
+  <button onclick="msg()">Yes</button>
+  <button onclick="msg()">No</button>`;
+}
+
+function msg(){
+  document.body.innerHTML=`
+  <p>Shayad tumhe mera feel pasand na ho,<br>
+  lekin main khud ko behtar bana raha hoon,<br>
+  tumhare liye behtar banta rahunga<br>
+  jab tak main tumhare layak nahi hoon.</p>
+  <button onclick="mini()">Continue</button>`;
+}
+
+function mini(){
+  document.body.innerHTML=`
+  <h2>Choose one to continue:</h2>
+  <button onclick="compliment()">Cute</button>
+  <button onclick="compliment()">Funny</button>
+  <button onclick="compliment()">Honest</button>`;
+}
+
+function compliment(){
+  document.body.innerHTML=`
+  <p>Tumhe khud ka pata nahi,<br>
+  tum kitni special ho.<br>
+  Tumhari wajh se sab kuch khubsurat lagta hai.</p>
+  <button onclick="finalPage()">Almost there…</button>`;
+}
+
+function finalPage(){
+  document.body.innerHTML=`
+  <h2>Tum end tak pohanch gayi</h2>
+  <p>Ab tumhe pata chalega kisne bheja</p>
+  <button onclick="reveal()">Reveal</button>`;
+}
+
+function reveal(){
+  document.body.innerHTML=`
+  <h2>Surprise!</h2>
+  <h3>Ye maine bheja tha</h3>`;
+}
+</script>
+</body>
+</html>
